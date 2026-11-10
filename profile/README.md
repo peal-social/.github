@@ -185,8 +185,6 @@ Found a security issue? Write to [security@peal.social](mailto:security@peal.soc
 &nbsp;
 <a href="https://github.com/peal-social/peal"><img src="https://img.shields.io/badge/-Star_on_GitHub-415eee?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub" height="36"></a>
 
-<br><br>
-
 <sub>Write once, post everywhere · <a href="https://peal.social">peal.social</a></sub>
 
 </div>
