@@ -177,8 +177,16 @@ Found a security issue? Write to [security@peal.social](mailto:security@peal.soc
 
 <div align="center">
 
-[<kbd> <br> Read the docs ➜ <br> </kbd>](https://docs.peal.social)
-&nbsp;&nbsp;
-[<kbd> <br> Star the repo ➜ <br> </kbd>](https://github.com/peal-social/peal)
+<br>
+
+<a href="https://peal.social"><img src="https://img.shields.io/badge/-Visit_peal.social-ffca00?style=for-the-badge" alt="Visit peal.social" height="36"></a>
+&nbsp;
+<a href="https://docs.peal.social"><img src="https://img.shields.io/badge/-Read_the_docs-b9a6ff?style=for-the-badge" alt="Read the docs" height="36"></a>
+&nbsp;
+<a href="https://github.com/peal-social/peal"><img src="https://img.shields.io/badge/-Star_on_GitHub-415eee?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub" height="36"></a>
+
+<br><br>
+
+<sub>Write once, post everywhere · <a href="https://peal.social">peal.social</a></sub>
 
 </div>
