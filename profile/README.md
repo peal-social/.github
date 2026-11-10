@@ -43,10 +43,10 @@ const post = await peal.posts.send({
 });
 ```
 
-[![peal-sdk on npm](https://img.shields.io/npm/v/peal-sdk?label=peal-sdk&color=415eee)](https://www.npmjs.com/package/peal-sdk)
-[![peal-sdk on PyPI](https://img.shields.io/pypi/v/peal-sdk?label=peal-sdk&color=415eee)](https://pypi.org/project/peal-sdk/)
-[![OpenAPI 3.1](https://img.shields.io/badge/OpenAPI-3.1-415eee)](https://docs.peal.social/api-overview)
-[![Licence: FSL-1.1-ALv2](https://img.shields.io/badge/licence-FSL--1.1--ALv2-555)](https://github.com/peal-social/peal/blob/main/LICENSE.md)
+[![peal-sdk on npm](https://img.shields.io/npm/v/peal-sdk?label=peal-sdk&color=ffca00)](https://www.npmjs.com/package/peal-sdk)
+[![peal-sdk on PyPI](https://img.shields.io/pypi/v/peal-sdk?label=peal-sdk&color=ff98d3)](https://pypi.org/project/peal-sdk/)
+[![OpenAPI 3.1](https://img.shields.io/badge/OpenAPI-3.1-968efb)](https://docs.peal.social/api-overview)
+[![Licence: FSL-1.1-ALv2](https://img.shields.io/badge/licence-FSL--1.1--ALv2-415eee)](https://github.com/peal-social/peal/blob/main/LICENSE.md)
 
 No SDK needed. A bearer token and JSON over HTTPS are the whole contract:
 
@@ -105,13 +105,13 @@ Generated from one contract, released together, Apache-2.0.
 
 | Language | Install | Version |
 |---|---|---|
-| [TypeScript / Node.js](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/node) | `npm install peal-sdk` | [![npm](https://img.shields.io/npm/v/peal-sdk?label=&color=415eee)](https://www.npmjs.com/package/peal-sdk) |
-| [Python](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/python) | `pip install peal-sdk` | [![PyPI](https://img.shields.io/pypi/v/peal-sdk?label=&color=415eee)](https://pypi.org/project/peal-sdk/) |
-| [Go](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/go) | `go get github.com/peal-social/peal/packages/peal-sdk/go` | [![Go](https://img.shields.io/badge/pkg.go.dev-reference-415eee)](https://pkg.go.dev/github.com/peal-social/peal/packages/peal-sdk/go) |
-| [Ruby](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/ruby) | `gem install peal` | [![Gem](https://img.shields.io/gem/v/peal?label=&color=415eee)](https://rubygems.org/gems/peal) |
-| [Java](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/java) | `social.peal:peal` | [![Maven Central](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fsocial%2Fpeal%2Fpeal%2Fmaven-metadata.xml&label=&color=415eee)](https://central.sonatype.com/artifact/social.peal/peal) |
-| [PHP](https://github.com/peal-social/peal-php) | `composer require peal-social/peal` | [![Packagist](https://img.shields.io/packagist/v/peal-social/peal?label=&color=415eee)](https://packagist.org/packages/peal-social/peal) |
-| [.NET](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/dotnet) | `dotnet add package Peal` | [![NuGet](https://img.shields.io/nuget/v/Peal?label=&color=415eee)](https://www.nuget.org/packages/Peal) |
+| [TypeScript / Node.js](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/node) | `npm install peal-sdk` | [![npm](https://img.shields.io/npm/v/peal-sdk?label=&color=ffca00)](https://www.npmjs.com/package/peal-sdk) |
+| [Python](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/python) | `pip install peal-sdk` | [![PyPI](https://img.shields.io/pypi/v/peal-sdk?label=&color=ffb696)](https://pypi.org/project/peal-sdk/) |
+| [Go](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/go) | `go get github.com/peal-social/peal/packages/peal-sdk/go` | [![Go](https://img.shields.io/badge/pkg.go.dev-reference-ffa2be)](https://pkg.go.dev/github.com/peal-social/peal/packages/peal-sdk/go) |
+| [Ruby](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/ruby) | `gem install peal` | [![Gem](https://img.shields.io/gem/v/peal?label=&color=da9ff4)](https://rubygems.org/gems/peal) |
+| [Java](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/java) | `social.peal:peal` | [![Maven Central](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fsocial%2Fpeal%2Fpeal%2Fmaven-metadata.xml&label=&color=aa9bfd)](https://central.sonatype.com/artifact/social.peal/peal) |
+| [PHP](https://github.com/peal-social/peal-php) | `composer require peal-social/peal` | [![Packagist](https://img.shields.io/packagist/v/peal-social/peal?label=&color=8b87f9)](https://packagist.org/packages/peal-social/peal) |
+| [.NET](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/dotnet) | `dotnet add package Peal` | [![NuGet](https://img.shields.io/nuget/v/Peal?label=&color=6973f5)](https://www.nuget.org/packages/Peal) |
 | [Rust](https://github.com/peal-social/peal/tree/main/packages/peal-sdk/rust) | `cargo add peal-sdk` | [![crates.io](https://img.shields.io/crates/v/peal-sdk?label=&color=415eee)](https://crates.io/crates/peal-sdk) |
 
 <details>
