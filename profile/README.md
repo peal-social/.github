@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://peal.social">
-  <img src="https://raw.githubusercontent.com/peal-social/peal/main/packages/peal-site/public/favicon.svg" alt="Peal" width="96" height="96">
+  <img src="https://raw.githubusercontent.com/peal-social/peal/main/.github/logo/peal-cube.gif" alt="Peal" width="128" height="128">
 </a>
 
 # Peal
@@ -14,15 +14,16 @@ a command line and an MCP server for agents.<br>
 
 [Website](https://peal.social) •
 [Docs](https://docs.peal.social) •
-[API reference](https://docs.peal.social/api-overview) •
-[MCP](https://docs.peal.social/mcp) •
+[API reference](https://docs.peal.social/reference) •
+[MCP](https://docs.peal.social/developers/mcp) •
 [Self-hosting](https://docs.peal.social/self-hosting) •
+[Roadmap](https://github.com/orgs/peal-social/projects/1) •
 [Status](https://status.peal.social)
 
 </div>
 
 > [!NOTE]
-> Peal is in preview and not released yet. The SDKs are published; the hosted service at `app.peal.social` is on its way. You can [self-host](#self-host) today.
+> Peal is being built in the open and has not been released yet. The SDKs are published, and the hosted service at [app.peal.social](https://app.peal.social) is an early preview. You can [self-host](#self-host) today, and follow what comes next on the [roadmap](https://github.com/orgs/peal-social/projects/1).
 
 ```bash
 npm install peal-sdk
@@ -45,7 +46,7 @@ const post = await peal.posts.send({
 
 [![peal-sdk on npm](https://img.shields.io/npm/v/peal-sdk?label=peal-sdk&color=ffca00)](https://www.npmjs.com/package/peal-sdk)
 [![peal-sdk on PyPI](https://img.shields.io/pypi/v/peal-sdk?label=peal-sdk&color=ff98d3)](https://pypi.org/project/peal-sdk/)
-[![OpenAPI 3.1](https://img.shields.io/badge/OpenAPI-3.1-968efb)](https://docs.peal.social/api-overview)
+[![OpenAPI 3.1](https://img.shields.io/badge/OpenAPI-3.1-968efb)](https://docs.peal.social/reference)
 [![Licence: FSL-1.1-ALv2](https://img.shields.io/badge/licence-FSL--1.1--ALv2-415eee)](https://github.com/peal-social/peal/blob/main/LICENSE.md)
 
 No SDK needed. A bearer token and JSON over HTTPS are the whole contract:
@@ -71,19 +72,26 @@ curl -X POST https://app.peal.social/api/workspaces/$WORKSPACE_ID/posts/send \
 
 One composer and one request shape for all of them. Text, media and options are checked against each platform's rules before a post is scheduled, and every violation comes back at once.
 
-| Platform | `platform` | Publishing | Analytics |
-|---|---|:---:|:---:|
-| X | `x` | ✓ | soon |
-| LinkedIn (profiles and pages) | `linkedin` | ✓ | company pages |
-| Bluesky | `bluesky` | ✓ | ✓ |
-| Mastodon (any instance) | `mastodon` | ✓ | ✓ |
-| Threads | `threads` | ✓ | soon |
-| Instagram | `instagram` | ✓ | ✓ |
-| Facebook Pages | `facebook` | ✓ | soon |
-| TikTok | `tiktok` | ✓ | ✓ |
-| YouTube | `youtube` | ✓ | ✓ |
-| Pinterest | `pinterest` | ✓ | ✓ |
-| Google Business Profile | `googleBusiness` | ✓ | – |
+| Platform | `platform` | Publishing | Analytics | Inbox |
+|---|---|:---:|:---:|---|
+| X | `x` | ✓ | operator opt-in | – |
+| LinkedIn (profiles and pages) | `linkedin` | ✓ | company pages | page comments (awaiting LinkedIn) |
+| Bluesky | `bluesky` | ✓ | ✓ | comments, direct messages |
+| Mastodon (any instance) | `mastodon` | ✓ | ✓ | comments, direct messages |
+| Threads | `threads` | ✓ | ✓ | – |
+| Instagram | `instagram` | ✓ | ✓ | comments, messages, private replies (awaiting Meta) |
+| Facebook Pages | `facebook` | ✓ | ✓ | comments, messages, private replies (awaiting Meta) |
+| TikTok | `tiktok` | ✓ | ✓ | – |
+| YouTube | `youtube` | ✓ | ✓ | comments (awaiting Google) |
+| Pinterest | `pinterest` | ✓ | ✓ | – |
+| Google Business Profile | `googleBusiness` | ✓ | – | reviews (awaiting Google) |
+| Discord (chats) | `discord` | ✓ | – | – |
+| Telegram (chats) | `telegram` | ✓ | – | – |
+| Slack (chats) | `slack` | ✓ | – | – |
+
+Websites take articles, with a formatted body, a featured image, tags and categories: a WordPress site of your own (`wordpress`), WordPress.com (`wordpressCom`), DEV (`devto`) and Hashnode (`hashnode`).
+
+"Awaiting" marks what is built but stays off until the platform has reviewed the server's app: Meta's App Review, Google's verification, LinkedIn's comment scopes. Direct messages are read only where whoever runs the server turned them on, and only for the channels a workspace chose. [Platforms](https://docs.peal.social/platforms) has each one's limits; [Inbox](https://docs.peal.social/guides/engage/inbox) says what it reads.
 
 Each channel answers what it accepts (`GET …/channels/{channelId}/capabilities`), so a client never has to hard-code a platform's limits.
 
@@ -94,10 +102,13 @@ Each channel answers what it accepts (`GET …/channels/{channelId}/capabilities
 | **Posts** | Drafts, per-channel text, scheduling in the author's time zone, a calendar, cancel, reschedule, post again where an attempt failed |
 | **Media** | Images, videos and PDF documents, uploaded straight to storage or imported from a URL, with alt text |
 | **Review** | Share a post through a link for outside comments and approval; have posts wait for approval before they go out |
-| **Analytics** | Likes, reposts, replies, quotes and views, read back hourly for two days then daily for a month |
-| **Webhooks** | Posts scheduled, published, failed or cancelled; channels to reconnect; signed per Standard Webhooks, retried for about a day, with a delivery log |
+| **Analytics** | Likes, reposts, replies, quotes and views, read back hourly for two days then daily for a month; followers by day; a CSV export |
+| **Inbox** | Comments under your posts and direct messages, answered as the connected account; Google Business Profile reviews |
+| **Automations** | Comment rules that answer comments holding a keyword; follow-ups that comment under or repost a post once it has enough likes |
+| **Ads** | Meta ad accounts, read and boosting a published post within a monthly ceiling an owner sets; Google Ads accounts, read only |
+| **Webhooks** | Posts scheduled, published, failed or cancelled; channels to reconnect; comments, messages and reviews received; boosts and articles; signed per Standard Webhooks, retried for about a day, with a delivery log |
 | **Assistant** | Rewrite, shorten or translate a post, suggest hashtags, with Anthropic or any OpenAI-compatible endpoint |
-| **Workspaces** | Members, roles, invitations, scoped API keys, plans and billing |
+| **Workspaces** | Members, roles, invitations, scoped API keys, plans and billing; sign-in with a password or Google, or an OpenID Connect provider on a self-hosted server |
 
 ## SDKs
 
@@ -142,8 +153,8 @@ post = peal.posts.send(
 
 | | What it is |
 |---|---|
-| **MCP server** | Built into Peal at `/api/mcp` (Streamable HTTP, OAuth sign-in). An agent works in the one workspace you pick, with the scopes you allow: read, write drafts, or publish. [MCP docs](https://docs.peal.social/mcp) · [Posting from an agent](https://docs.peal.social/agents) |
-| **`peal` CLI** | Drafts, posts, analytics, billing, members and invitations from the terminal, signed in with OAuth. Builds from source today. [CLI docs](https://docs.peal.social/cli) |
+| **MCP server** | Built into Peal at `/api/mcp` (Streamable HTTP, OAuth sign-in). An agent works in the one workspace you pick, with the scopes you allow: read, write drafts, or publish. [MCP docs](https://docs.peal.social/developers/mcp) · [Posting from an agent](https://docs.peal.social/developers/agents) |
+| **`peal` CLI** | Drafts, posts, analytics, billing, members and invitations from the terminal, signed in with OAuth. Builds from source today. [CLI docs](https://docs.peal.social/developers/cli) |
 
 ## Self-host
 
